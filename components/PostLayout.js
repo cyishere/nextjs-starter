@@ -2,18 +2,8 @@ import { MDXProvider } from "@mdx-js/react";
 import styled from "styled-components";
 import Footer from "./Footer";
 import SEO from "./SEO";
-import Blockquote from "./Blockquote";
 import { COLORS } from "@/styles/constants";
-import Text from "./Text";
-import CodeBlock from "./CodeBlock";
-import Code from "./Code";
-
-const components = {
-  blockquote: Blockquote,
-  p: Text,
-  inlineCode: Code,
-  code: CodeBlock,
-};
+import MDXComponents from "./MDXComponents";
 
 const PostLayout = ({ meta, children }) => {
   return (
@@ -25,7 +15,7 @@ const PostLayout = ({ meta, children }) => {
           {meta.createdAt} - {meta.readTime} minutes read
         </Meta>
       </Header>
-      <MDXProvider components={components}>
+      <MDXProvider components={MDXComponents}>
         <Container>{children}</Container>
       </MDXProvider>
 
