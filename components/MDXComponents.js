@@ -6,11 +6,18 @@ import CodeBlock from "./CodeBlock";
 const Blockquote = (props) => <BlockquoteWrapper {...props} />;
 const Code = (props) => <CodeWrapper {...props} />;
 
+const Heading2 = ({ children }) => {
+  const idText = children.replace(/ /g, "_").toLowerCase();
+
+  return <h2 id={idText}>{children}</h2>;
+};
+
 const MDXComponents = {
   p: (props) => <Text {...props} />,
   blockquote: Blockquote,
   inlineCode: Code,
   code: CodeBlock,
+  h2: Heading2,
 };
 
 const BlockquoteWrapper = styled.blockquote`

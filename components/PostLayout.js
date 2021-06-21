@@ -1,11 +1,18 @@
-import { MDXProvider } from "@mdx-js/react";
+import { renderToString } from "react-dom/server";
 import styled from "styled-components";
+import { MDXProvider } from "@mdx-js/react";
+
 import Footer from "./Footer";
 import SEO from "./SEO";
+import Toc from "./Toc";
 import { COLORS } from "@/styles/constants";
 import MDXComponents from "./MDXComponents";
+import { getHeadings } from "@/utils/toc";
 
 const PostLayout = ({ meta, children }) => {
+  const contentString = renderToString(children);
+  const headings = getHeadings(contentString);
+
   return (
     <Wrapper>
       <SEO title={meta.title} />
@@ -15,6 +22,9 @@ const PostLayout = ({ meta, children }) => {
           {meta.createdAt} - {meta.readTime} minutes read
         </Meta>
       </Header>
+
+      {headings.length > 0 ? <Toc headings={headings} /> : null}
+
       <MDXProvider components={MDXComponents}>
         <Container>{children}</Container>
       </MDXProvider>
