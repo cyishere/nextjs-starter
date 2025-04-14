@@ -18,6 +18,13 @@ npm install
 
 ## Run Locally
 
+**⚠️ NOTE**: If you're using newer versions of Node.js (particularly version 17+), you'll need to modify the `dev` and `build` scripts in your `package.json` file as follows:
+
+```
+"dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+"build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+```
+
 ```bash
 yarn dev
 

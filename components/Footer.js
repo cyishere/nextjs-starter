@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import { ExternalLink } from "./Link";
-import { COLORS } from "@/styles/constants";
+import styled from 'styled-components';
+import { ExternalLink } from './Link';
+import { COLORS } from '@/styles/constants';
 
 const Footer = () => {
   return (
     <Wrapper>
       <Container>
         <p>
-          A project start made by{" "}
+          A project starter made by{' '}
           <ExternalLink href="https://cyishere.dev">CY</ExternalLink>.
         </p>
         <ExternalLink href="https://github.com/cyishere/nextjs-starter">
