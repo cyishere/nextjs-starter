@@ -1,0 +1,11 @@
+.header {
+  text-align: center;
+
+  time {
+    color: var(--color-text);
+  }
+}
+
+.content {
+  --container-max-width: 65ch;
+}

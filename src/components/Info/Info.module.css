@@ -1,0 +1,9 @@
+.wrapper {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-secondary);
+  padding: var(--space-xs-s);
+
+  a {
+    color: var(--color-text);
+  }
+}

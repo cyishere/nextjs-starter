@@ -1,0 +1,3 @@
+# Ignore all MDX and MD files in the content directory
+content/**/*.mdx
+content/**/*.md 

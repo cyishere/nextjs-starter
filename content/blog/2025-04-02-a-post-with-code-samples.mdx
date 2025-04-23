@@ -1,0 +1,183 @@
+---
+title: A Post with Code Samples
+createdAt: 2025-04-02
+description: 'The best way to demo a code post is to display a real life post, so check out this one from cyishere.dev why `next-mdx-remote` is the better option for intergrating Next.js and MDX.'
+---
+
+The best way to demo a code post is to display a real life post, so check out this one from [cyishere.dev](https://cyishere.dev) why `next-mdx-remote` is the better option for intergrating Next.js and MDX.
+
+---
+
+I recently refactored this blog using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote). Previously, I used [@next/mdx](https://www.npmjs.com/package/@next/mdx). I'll explain the differences between these two methods and why I chose `next-mdx-remote` in the article.
+
+## The Very Complex `@next/mdx` Way
+
+With `@next/mdx`, the Next.js can read every MDX file as a page. The file structure looks like this:
+
+```bash
+- pages/
+	- blog/
+		- article-1.mdx
+		- article-2.mdx
+		- article-3.mdx
+	index.tsx
+	about.tsx
+```
+
+There is also no need to create a file like this `pages/blog/[slug].jsx` to dynamically display the articles. This seems very convenient. But the disadvantage is that the structure of each MDX file becomes very complex.
+
+**First**, we must import the layout component that each article page requires and export a default component wrapped in this layout:
+
+```markdown
+// article-1.mdx 🖖🏻
+
+import { PostLayout } from "@/components/Layout";
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+// The main markdown content
+This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block.
+```
+
+**Second**, if we require additional components in this file, we must manually import them. For example, if I created a `Figure` component to display images, I must import it into each post's MDX file:
+
+```markdown
+// article-1.mdx
+
+import { PostLayout } from "@/components/Layout";
+import Figure from "@/component/Figure";
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block.
+
+// Then use `Figure` in the main content
+
+<Figure
+  alt="slideshow screenshot"
+  src="/img/blog/accessible-slideshow-with-react/slideshow-screenshot.png"
+  width={900}
+  height={600}
+/>
+```
+
+**Finally**, we must create an object to serve as `frontmatter` and pass it to the default component:
+
+```markdown
+// article-1.mdx
+
+import { PostLayout } from "@/components/Layout";
+
+export const meta = {
+  title: "@next/mdx Or next-mdx-remote",
+  description: "When building a blog with MDX and Next.js, there are so many ways. In this article, I'll show you why I choose next-mdx-remote instead of @next/mdx.",
+  createdAt: "2022-06-26",
+  tags: ["mdx", "next.js"],
+};
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+// The main markdown content
+This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block.
+```
+
+## The Clean `next-mdx-remote` Way
+
+With `next-mdx-remote`, we can write an article in **normal** markdown syntax:
+
+```markdown
+// article-1.mdx
+
+---
+
+title: "@next/mdx Or next-mdx-remote"
+description: "When building a blog with MDX and Next.js, there are so many ways. In this article, I'll show you why I choose next-mdx-remote instead of @next/mdx."
+createdAt: "2022-06-26"
+tags: ["mdx", "next.js"]
+
+---
+
+This is a text block.
+
+## This Is a Heading
+
+<Figure
+  alt="slideshow screenshot"
+  src="/img/blog/accessible-slideshow-with-react/slideshow-screenshot.png"
+  width={900}
+  height={600}
+/>
+
+This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block. This is a text block.
+```
+
+We place meta data between two `---`, use any component without importing it in each file, and do not need to import the page layout.
+
+To generate pages for each article, we use the _Next.js way_.
+
+```jsx
+// pages/blog/[slug].jsx
+
+const PostPage = ({ mdxSource, meta }) => {};
+
+export default PostPage;
+
+/**
+ * Get artciel date in `getStaticProps` function
+ */
+export function getStaticProps({ params }) {
+  // omitted
+
+  return {
+    props: {
+      mdxSource, // The main content in each mdx file
+      meta // The frontmatter part
+    }
+  };
+}
+```
+
+To use the custom components, we pass them to the `MDXRemote`'s `component` prop, which is from `next-mdx-remote`:
+
+```jsx
+// pages/blog/[slug].jsx
+
+import { MDXRemote } from 'next-mdx-remote';
+
+import { PostLayout } from '@/components/Layout';
+
+const PostPage = ({ mdxSource, meta }) => {
+  const components = {
+    a: ({ children, ...props }) => (
+      <Link {...props} passHref>
+        <a>{children}</a>
+      </Link>
+    ),
+    Figure
+  };
+
+  return (
+    <PostLayout>
+      <h1>{meta.title}</h1>
+      // Show the article content
+      <MDXRemote {...mdxSource} components={components} />
+    </PostLayout>
+  );
+};
+
+export default PostPage;
+
+// omitted
+```
+
+[Here](https://github.com/cyishere/cyishere2022/blob/main/pages/blog/%5Bslug%5D.tsx) is the entire code.
+
+## Conclusion
+
+Article pages can be generated from MDX files or dynamic routes; they are all static pages that are generated at build time. However, as shown in the code above, the `next-mdx-remote` method keeps the files cleaner and allows you to use the `getStaticProps` function. I hope this article could help you in deciding which to use.

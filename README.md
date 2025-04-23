@@ -1,39 +1,26 @@
-# A Next.js Project Starter
+# A Next.js + MDX Starter
 
-This starter uses [MDX](https://mdxjs.com/) as main content/page, the methods about processing the `.mdx` files are defined in `src/utils/getAllPosts.js`. Also uses [styled-components](https://styled-components.com/) for styling.
+This starter project demonstrates the integration of MDX with Next.js, drawing inspiration from the elegant Hylia Starter Kit for Eleventy.
 
-For the code block syntax highlighting, this starter uses the [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) dependency. More information in `src/components/CodeBlock.js`.
+Key features and technologies:
 
-Posts are copied from [this Eleventy starter](https://hylia.website/).
+- [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for MDX processing and rendering
+- A CSS architecture combining vanilla CSS and CSS Modules, following the [CUBE CSS](https://cube.fyi/) methodology (Learn more about this approach in this detailed [blog post](https://piccalil.li/blog/cube-css/))
 
-## Install
+  With this setup for a starter also means it's easier to switch to other prefered styling solution.
 
-```bash
-yarn install
+- [Bright](https://bright.codehike.org/) for beautiful code syntax highlighting, optimized for React Server Components
 
-# or
+The dark/light theme switching implementation and file handling utilities were adapted from [the Joy of React course exercise](https://github.com/joy-of-react/project-blog).
 
-npm install
-```
+## TODO
 
-## Run Locally
+[ ] Add RSS feed
 
-**⚠️ NOTE**: If you're using newer versions of Node.js (particularly version 17+), you'll need to modify the `dev` and `build` scripts in your `package.json` file as follows:
+## Changelog
 
-```
-"dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
-"build": "NODE_OPTIONS=--openssl-legacy-provider next build",
-```
+April 2025:
 
-```bash
-yarn dev
-
-# or
-
-npm run dev
-```
-
-## Resources
-
-- [Markdown/MDX with Next.js](https://nextjs.org/blog/markdown)
-- [How To Build A Blog With Next And MDX](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx/)
+- Updated Next.js to version 15.3.1
+- Migrated from styled-components to a pure CSS/CSS Modules approach
+- Migrated to TypeScript
