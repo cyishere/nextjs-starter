@@ -15,7 +15,7 @@ Key features and technologies:
 
 ## TODO
 
-[ ] Add RSS feed
+- [ ] Add RSS feed
 
 ## Changelog
 
