@@ -1,6 +1,6 @@
 # A Next.js + MDX Starter
 
-This starter project demonstrates the integration of MDX with Next.js, drawing inspiration from the elegant Hylia Starter Kit for Eleventy.
+This starter project demonstrates the integration of MDX with Next.js, drawing inspiration from the elegant [Hylia Starter Kit](https://hylia.website/) for Eleventy.
 
 Key features and technologies:
 
