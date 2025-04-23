@@ -11,7 +11,7 @@ Key features and technologies:
 
 - [Bright](https://bright.codehike.org/) for beautiful code syntax highlighting, optimized for React Server Components
 
-The dark/light theme switching implementation and file handling utilities were adapted from [the Joy of React course exercise](https://github.com/joy-of-react/project-blog).
+**NOTE:** The dark/light theme switching implementation and file handling utilities were adapted from [the Joy of React course exercise](https://github.com/joy-of-react/project-blog).
 
 ## TODO
 
