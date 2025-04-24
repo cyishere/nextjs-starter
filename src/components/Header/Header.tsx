@@ -54,7 +54,7 @@ const Header = () => {
             );
           })}
           <li>
-            <Link href="/">
+            <Link href="/feed.xml">
               <RssIcon />
             </Link>
           </li>

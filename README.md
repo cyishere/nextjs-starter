@@ -13,10 +13,6 @@ Key features and technologies:
 
 **NOTE:** The dark/light theme switching implementation and file handling utilities were adapted from [the Joy of React course exercise](https://github.com/joy-of-react/project-blog).
 
-## TODO
-
-- [ ] Add RSS feed
-
 ## Changelog
 
 April 2025:
