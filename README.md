@@ -7,7 +7,7 @@ Key features and technologies:
 - [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for MDX processing and rendering
 - A CSS architecture combining vanilla CSS and CSS Modules, following the [CUBE CSS](https://cube.fyi/) methodology (Learn more about this approach in this detailed [blog post](https://piccalil.li/blog/cube-css/))
 
-  With this setup for a starter also means it's easier to switch to other prefered styling solution.
+  _With this setup for a starter also means it's easier to switch to other prefered styling solution._
 
 - [Bright](https://bright.codehike.org/) for beautiful code syntax highlighting, optimized for React Server Components
 
