@@ -15,6 +15,10 @@ Key features and technologies:
 
 ## Changelog
 
+May 2025:
+
+- For better practise: use Prettier only for formatting and use ESLint for sorting imports.
+
 April 2025:
 
 - Updated Next.js to version 15.3.1
