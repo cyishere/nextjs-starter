@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "npx prettier . --write"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:all": "eslint src --ext .ts,.tsx --fix && prettier --write ."
   },
   "dependencies": {
     "bright": "^1.0.0",
@@ -22,14 +24,16 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/rss": "^0.0.32",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
+    "eslint-plugin-import": "^2.31.0",
     "prettier": "^3.5.3",
     "typescript": "^5"
   }

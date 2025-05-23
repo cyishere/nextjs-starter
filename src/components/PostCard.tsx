@@ -1,7 +1,8 @@
+import type { PostMetadata } from '@/utils/types';
+
 import Link from 'next/link';
 
 import { getFormattedDate } from '@/utils/format';
-import { PostMetadata } from '@/utils/types';
 
 type PostCardProps = {
   post: PostMetadata;

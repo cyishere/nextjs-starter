@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import type { SiteTheme } from '@/utils/types';
+
 import Cookie from 'js-cookie';
+import { useState } from 'react';
 
 import { THEME_NAME } from '@/utils/constants';
-import { SiteTheme } from '@/utils/types';
+
 import { Moon, Sun } from '../Icons';
 
 type ThemeSwitcherProps = {

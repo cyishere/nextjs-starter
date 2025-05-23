@@ -1,6 +1,8 @@
+import type { AppImageProps } from './AppImage';
+
 import { Code } from 'bright';
 
-import AppImage, { AppImageProps } from './AppImage';
+import AppImage from './AppImage';
 import TextLink from './TextLink';
 import YouTube from './YouTube';
 

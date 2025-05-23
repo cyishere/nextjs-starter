@@ -1,9 +1,10 @@
+import type { PostMetadata } from './types';
+
 import fs from 'fs/promises';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
 
 import { CONTENT_ROOT } from './constants';
-import { PostMetadata } from './types';
 
 function readFile(localPath: string) {
   return fs.readFile(path.join(process.cwd(), localPath), 'utf8');

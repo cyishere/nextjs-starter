@@ -1,4 +1,3 @@
-import React from 'react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { COMPONENTS_MAP } from '../mdx-components';

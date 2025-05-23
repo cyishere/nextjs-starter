@@ -1,7 +1,8 @@
+import type { SiteTheme } from '@/utils/types';
+
 import { cookies } from 'next/headers';
 
 import { THEME_NAME } from '@/utils/constants';
-import { SiteTheme } from '@/utils/types';
 
 export const getTheme = async (): Promise<SiteTheme> => {
   const cookieStore = await cookies();

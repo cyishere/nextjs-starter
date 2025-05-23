@@ -1,10 +1,12 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import PostCard from '@/components/PostCard';
 import { SITE_TITLE } from '@/utils/constants';
 import { getBlogPostsByPage } from '@/utils/file-helpers';
+
 import styles from './Page.module.css';
 
 const PAGE_TITLE = 'Blog Posts';

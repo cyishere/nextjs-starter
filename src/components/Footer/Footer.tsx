@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { getTheme } from '@/actions/theme';
+
 import ThemeSwitcher from '../ThemeSwitcher';
 import styles from './Footer.module.css';
 

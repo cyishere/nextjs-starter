@@ -1,10 +1,12 @@
-import { Metadata } from 'next';
+import type { PostMetadata } from '@/utils/types';
+import type { Metadata } from 'next';
+
 import { notFound } from 'next/navigation';
 
 import CustomMDXRemote from '@/components/CustomMDXRemote';
 import { getBlogPostBySlug } from '@/utils/file-helpers';
 import { getFormattedDate } from '@/utils/format';
-import { PostMetadata } from '@/utils/types';
+
 import styles from './Page.module.css';
 
 type BlogPostProps = {
