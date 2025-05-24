@@ -18,6 +18,7 @@ Key features and technologies:
 May 2025:
 
 - For better practise: use Prettier only for formatting and use ESLint for sorting imports.
+- Update `[next.config.ts](./next.config.ts)` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment
 
 April 2025:
 
