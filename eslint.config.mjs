@@ -14,14 +14,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    ignores: [
-      'node_modules/**',
-      '.next/**',
-      'public/**',
-      'prisma/**',
-      'src/generated/**',
-      'src/generated/prisma/**'
-    ]
+    ignores: ['node_modules/**', '.next/**', 'public/**']
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
